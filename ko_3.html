@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Example: View Model</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-debug.js"></script>		
+	</head>
+	<body>
+		<div class="container">
+			<h4>Users</h4>
+			
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Index</th>
+						<th>Name</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody data-bind="foreach: users">
+					<tr>
+						<td data-bind="text: $index"></td>
+						<td data-bind="text: name"></td>
+						<td><a class="btn btn-danger" href="#" data-bind="click: $parent.removeUser">Remove</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<input type="text" id="newUser">
+			<button class="btn btn-primary" data-bind="click: addUser">Add User</button>
+		</div>
+		<script>
+			function viewModel(){
+				var self = this;
+
+				self.users = ko.observableArray([
+					{name: 'Julen'},
+					{name: 'Ionan'},
+					{name: 'Elena'}
+				]);
+
+				self.addUser = function(){
+					self.users.push({name: $('#newUser').val()});
+				}
+				self.removeUser = function(){
+					self.users.remove(this);
+				}
+			}
+
+			ko.applyBindings(new viewModel());
+		</script
+	</body>
+</html>

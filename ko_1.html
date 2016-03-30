@@ -1,8 +1,28 @@
 <html>
 	<head>
-		<title>Knockout playground</title>
+		<title>Example: View Model</title>
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-debug.js"></script>		
 	</head>
 	<body>
-		<h1>Knockout Playground</h1>
+		<h1>Welcome <span data-bind="text: firstName"></span> <span data-bind="text: lastName"></span></h1><br>
+		
+		<label>Firstname</label><br>
+		<input type="text" data-bind="value: firstName"><br>
+
+		<label>Lastname</label><br>
+		<input type="text" data-bind="value: lastName, valueUpdate: 'afterkeydown'"><br>
+
+		<script>
+			var myViewModel = {
+				firstName : ko.observable('Julen'),
+				lastName : ko.observable('Ormaetxea')
+			}
+
+			myViewModel.firstName.subscribe(function(newValue){
+					console.log("The users firstname is now " + newValue);
+			});
+			ko.applyBindings(myViewModel);
+		</script
 	</body>
 </html>

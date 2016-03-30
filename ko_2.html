@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>Example: View Model</title>
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-debug.js"></script>		
+	</head>
+	<body>
+		<h1>User List:</h1>
+
+		<ul data-bind="foreach: userArray1">
+			<li data-bind="text: $data"></li>
+		</ul>
+
+		<h1>Users Table</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>Firstname</th>
+					<th>Lastname</th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: userArray2">
+				<tr>
+					<td data-bind= "text: firstName"></td>
+					<td data-bind="text: lastName"></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<script>
+			var userArray1 = ko.observableArray(['Julen', 'Ionan', 'Elena']);
+			var userArray2 = ko.observableArray([
+				{firstName: 'Julen', lastName: 'Ormaetxea'},
+				{firstName: 'Ionan', lastName: 'Gurrutxaga'},
+				{firstName: 'Elena', lastName: 'Mateos'},
+				]);
+			ko.applyBindings();
+		</script
+	</body>
+</html>
