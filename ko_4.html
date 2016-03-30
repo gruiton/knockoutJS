@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<title>Example: TEXT Model</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-debug.js"></script>		
+	</head>
+	<body>
+
+		<p>Hello, my name is <strong><span data-bind="text: name"></span></strong>	and I am a <strong><span data-bind="text: job"></span></strong></p>
+
+		<script>
+			var viewModel = {
+				name: ko.observable('Julen'),
+				job: ko.observable('Web Developer')
+			}
+			ko.applyBindings(viewModel);
+		</script
+	</body>
+</html>

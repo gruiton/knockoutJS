@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title>Example: HTML Binding</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-debug.js"></script>		
+	</head>
+	<body>
+		<div data-bind="html: htmlString"></div>
+		<script>
+			var viewModel = {
+				htmlString: ko.observable()
+			}
+			viewModel.htmlString("<h1>This is an html heading</h1><p>This is a <strong>paragraph</strong></p>");
+			ko.applyBindings(viewModel);
+		</script>
+	</body>
+</html>
