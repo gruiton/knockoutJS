@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>Example: ENABLE/DISABLE Binding</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-debug.js"></script>	
+	</head>
+	<body>
+		<p>
+			<input type="checkbox" data-bind="checked: isCompany">
+			Register Under a Company
+		</p>
+		<p>
+			Your name: 
+			<input type="text" data-bind="value: name, disable: isCompany">
+		</p>
+		<p>
+			Company name:
+			<input type="text" data-bind="value: companyName, enable: isCompany">
+		</p>
+		<script>
+			var viewModel = {
+				isCompany: ko.observable(false),
+				companyName: ""
+			}
+			ko.applyBindings(viewModel);
+		</script>
+	</body>
+</html>

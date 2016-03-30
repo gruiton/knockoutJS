@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>Example: CHECK Binding</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-debug.js"></script>	
+	</head>
+	<body>
+		<p>My Checkbox <input type="checkbox" data-bind="checked: checkIt"></p>
+		<button data-bind="click: checkIt">Check the Box</button>
+		<script>
+			var viewModel = {
+				checkIt: ko.observable(true),
+			}
+			viewModel.checkIt(false);
+			ko.applyBindings(viewModel);
+		</script>
+	</body>
+</html>

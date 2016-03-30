@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title>Example: ATTR Binding</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-debug.js"></script>	
+	</head>
+	<body>
+		<a data-bind="attr: {href: url, title: details}">About us</a>
+		<script>
+			var viewModel = {
+				url: ko.observable('about.html'),
+				details: ko.observable('Read more about us')
+			}
+			ko.applyBindings(viewModel);
+		</script>
+	</body>
+</html>

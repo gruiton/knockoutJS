@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>Example: SUBMIT Binding</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-debug.js"></script>	
+	</head>
+	<body>
+		<span data-bind="text: submitMessage"></span>
+		<form data-bind="submit: fireSubmit">
+			<button type="submit">Submit</button>
+		</form>
+		<script>
+			var viewModel = {
+				submitMessage: ko.observable(),
+				fireSubmit: function(){
+					this.submitMessage('Form Submitted');
+				}
+			}
+			ko.applyBindings(viewModel);
+		</script>
+	</body>
+</html>
