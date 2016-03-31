@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>Example: COMPONENT Binding</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-debug.js"></script>	
+	</head>
+	<body>
+		<newsletter-widget></newsletter-widget>
+		<script>
+			ko.components.register('newsletter-widget', {
+				viewModel: function(){
+					this.email = ko.observable();
+					this.showMessage = ko.observable(false);
+					this.submitForm = function(){
+						this.showMessage(true);						
+					}
+				},
+				template: '<h3>Subscribe To Our Newsletter</h3>\
+				<form data-bind="submit: submitForm">\
+					<input data-bind="value: email">\
+					<button type="submit">Submit</button>\
+				</form>\
+				<p data-bind="visible: showMessage">Thanks For Subscribing: <br><strong><span data-bind="text:email"></span></strong></p>\
+				'
+			});
+			ko.applyBindings();
+		</script>
+	</body>
+</html>
